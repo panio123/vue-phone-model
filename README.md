@@ -1,6 +1,7 @@
 # vue-phone-model
 
 > A vue mobile phone model component
+>一个vuejs的手机模型组件
 
 ![image](http://git.oschina.net/liupan520/vue-phone-model/raw/master/p.jpg)
 
