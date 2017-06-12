@@ -5,8 +5,9 @@
 </template>
 
 <script>
-  import VPhone from './Phone.vue';
-
+  // import VPhone from './Phone.vue';
+  import VPhone from '../dist/phone.js';
+  console.log(VPhone);
   export default {
     name: 'app',
     components: {

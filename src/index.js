@@ -1,5 +1,6 @@
 import VPhone from './Phone.vue';
-
-export default {
-  VPhone: VPhone
+VPhone.install = function (Vue) {
+  Vue.component(VPhone.name, VPhone);
 };
+
+export default VPhone;
