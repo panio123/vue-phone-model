@@ -41,6 +41,7 @@ npm install vue-phone-model
     }
   }
 
+</script>
 
 ```
 
