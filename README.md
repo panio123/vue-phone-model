@@ -25,7 +25,7 @@ npm install vue-phone-model
 </template>
 
 <script>
-  import VPhone from './Phone.vue';
+  import VPhone from 'vue-phone-model';
 
   export default {
     name: 'app',
