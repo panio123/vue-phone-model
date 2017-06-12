@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "A vue mobile phone model component",
   "author": "liupan <liupan@foreveross.com>",
+  "auth": "",
   "license": "ISC",
-  "main": "./index.js",
+  "main": "./dist/phone.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/panio123/vue-phone-model.git"
+  },
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
