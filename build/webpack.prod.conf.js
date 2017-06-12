@@ -13,7 +13,7 @@ var env = config.build.env
 
 var webpackConfig = merge(baseWebpackConfig, {
   entry: {
-    app: path.resolve(__dirname, '../index.js')
+    app: './src/index.js'
   },
   module: {
     rules: utils.styleLoaders({
