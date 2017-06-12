@@ -1,9 +1,48 @@
 # vue-phone-model
 
-> A vue mobile phone model component
 >一个vuejs的手机模型组件
 
 ![image](http://git.oschina.net/liupan520/vue-phone-model/raw/master/p.jpg)
+
+##使用
+
+目前只能用于 *.vue 开发模式中。
+
+###安装
+
+``` bash
+
+npm install vue-phone-model
+
+```
+
+``` html
+
+<template>
+  <div id="app">
+    <v-phone :open-url="url" :show-tool-bar="showToolBar"></v-phone>
+  </div>
+</template>
+
+<script>
+  import VPhone from './Phone.vue';
+
+  export default {
+    name: 'app',
+    components: {
+      VPhone
+    },
+    data() {
+      return {
+        url: 'http://liu-pan.cc/example/mi_app/index.html',//需要打开的链接 
+        url2: 'http://liu-pan.cc',
+        showToolBar: true//是否显示工具栏，可传入 true false 'auto'默认为 'auto',即根据打开网页的 meta属性决定
+      }
+    }
+  }
+
+
+```
 
 ## Build Setup
 
