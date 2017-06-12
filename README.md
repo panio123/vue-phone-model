@@ -2,6 +2,8 @@
 
 > A vue mobile phone model component
 
+![image](http://git.oschina.net/liupan520/vue-phone-model/raw/master/p.jpg)
+
 ## Build Setup
 
 ``` bash
