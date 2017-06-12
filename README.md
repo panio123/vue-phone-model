@@ -1,6 +1,6 @@
-# test
+# vue-phone-model
 
-> A Vue.js project
+> A vue mobile phone model component
 
 ## Build Setup
 
