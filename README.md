@@ -4,6 +4,8 @@
 
 ![image](http://git.oschina.net/liupan520/vue-phone-model/raw/master/p.jpg)
 
+##演示地址 [DOME](http://liu-pan.cc/phone)
+
 ##使用
 
 目前只能用于 *.vue 开发模式中。
