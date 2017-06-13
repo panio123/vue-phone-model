@@ -27,6 +27,9 @@
             <span @click="forward">
               <i class="v-icon bg-forward"></i>
             </span>
+            <span @click="reload">
+              <i class="v-icon bg-reload"></i>
+            </span>
           </div>
         </div>
       </div>
@@ -104,26 +107,32 @@
         FW.history.back();
       },
       forward() {
-        let F = this.$refs.iframe;
-        let FW = F.contentWindow;
+        let FW = this.getFw();
         FW.history.forward();
       },
+      reload() {
+        let FW = this.getFw();
+        FW.location.reload();
+      },
       bindHashchange() {
-        let F = this.$refs.iframe;
-        let FW = F.contentWindow;
+        let FW = this.getFw();
         FW.addEventListener('hashchange', () => {
           console.log(FW.location)
           this.url = FW.location.href;
         });
       },
       checkMeta() {
-        let F = this.$refs.iframe;
-        let FW = F.contentWindow;
+        let FW = this.getFw();
         let webApp = FW.document.querySelector('head meta[name="apple-mobile-web-app-capable"]');
         // console.log(webApp);
         if (this.ToolBarShow === 'auto' && webApp) {
           this.ToolBarShow = false;
         }
+      },
+      getFw() {
+        let F = this.$refs.iframe;
+        let FW = F.contentWindow;
+        return FW;
       },
       getTitle() {
         let F = this.$refs.iframe;
