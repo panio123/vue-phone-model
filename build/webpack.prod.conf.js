@@ -23,7 +23,8 @@ var webpackConfig = merge(baseWebpackConfig, {
   },
   devtool: false,
   output: {
-    publicPath: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../dist'),
+    publicPath: './',
     filename: 'phone.js',
     library: 'phone',
     libraryTarget: 'umd',

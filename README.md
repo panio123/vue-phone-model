@@ -20,12 +20,13 @@ npm install vue-phone-model
 
 <template>
   <div id="app">
-    <v-phone :open-url="url" :show-tool-bar="showToolBar"></v-phone>
+    <v-phone :list="list"></v-phone>
   </div>
 </template>
 
 <script>
   import VPhone from 'vue-phone-model';
+  import 'vue-phone-model/dist/phone.css';
 
   export default {
     name: 'app',
@@ -34,9 +35,19 @@ npm install vue-phone-model
     },
     data() {
       return {
-        url: 'http://liu-pan.cc/example/mi_app/index.html',//需要打开的链接 
-        url2: 'http://liu-pan.cc',
-        showToolBar: true//是否显示工具栏，可传入 true false 'auto'默认为 'auto',组件会根据打开网页的 meta属性决定
+        list: [{
+          title: '坚果空间',
+          icon: logo,
+          url: 'http://liu-pan.cc',//需要打开的链接 
+          showToolBar: true,//是否显示工具栏，可传入 true false 'auto'默认为 'auto',组件会根据打开网页的 meta属性决定
+          open: false//是否默认打开这个页面 -只会有一个默认打开生效
+        }, {
+          title: '小米商城',
+          icon: logo,
+          url: 'http://liu-pan.cc/example/mi_app/index.html',
+          showToolBar: true,
+          open: false
+        }]
       }
     }
   }

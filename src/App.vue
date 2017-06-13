@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <v-phone :open-url="url" :show-tool-bar="showToolBar"></v-phone>
+    <v-phone :list="list"></v-phone>
   </div>
 </template>
 
 <script>
-  import VPhone from './Phone.vue';
-  // import VPhone from '../dist/phone.js';
+  // import VPhone from './Phone.vue';
+  import logo from './img/logo.png';
+  import VPhone from '../dist/phone.js';
+  import '../dist/phone.css';
   // console.log(VPhone);
   export default {
     name: 'app',
@@ -15,9 +17,19 @@
     },
     data() {
       return {
-        url: 'http://liu-pan.cc/example/mi_app/index.html',
-        url2: 'http://liu-pan.cc',
-        showToolBar: true
+        list: [{
+          title: '坚果空间',
+          icon: logo,
+          url: 'http://liu-pan.cc',
+          showToolBar: true,
+          open: false
+        }, {
+          title: '小米商城',
+          icon: logo,
+          url: 'http://liu-pan.cc/example/mi_app/index.html',
+          showToolBar: true,
+          open: false
+        }]
       }
     }
   }
