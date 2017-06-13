@@ -28,6 +28,8 @@ npm install vue-phone-model
   import VPhone from 'vue-phone-model';
   import 'vue-phone-model/dist/phone.css';
 
+  import logo from './img/logo.png';
+
   export default {
     name: 'app',
     components: {
