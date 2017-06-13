@@ -13,13 +13,21 @@
             <i class="power"></i>
           </span>
         </div>
-        <div class="phone">
+        <div class="v-phone">
           <div class="web-bar web-top-bar">
             <input type="text" name="url" v-model.lazy="url" v-show="!webTitleShow" @blur="webTitleShow = true">
-            <div class="web-title" v-show="webTitleShow" @click="webTitleShow = false">{{webTitle}}</div>
+            <div class="web-title" v-show="webTitleShow" @click="webTitleShow = false">
+              <i class="v-icon bg-icon"></i>{{webTitle}}</div>
           </div>
           <iframe :src="url" @load="loaded" ref="iframe"></iframe>
-          <!--<div class="web-bar web-bottom-bar"></div>-->
+          <div class="web-bar web-bottom-bar">
+            <span @click="back">
+              <i class="v-icon bg-back"></i>
+            </span>
+            <span @click="forward">
+              <i class="v-icon bg-forward"></i>
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -89,6 +97,16 @@
         setTimeout(() => {
           this.timer();
         }, 1000 * 60);
+      },
+      back() {
+        let F = this.$refs.iframe;
+        let FW = F.contentWindow;
+        FW.history.back();
+      },
+      forward() {
+        let F = this.$refs.iframe;
+        let FW = F.contentWindow;
+        FW.history.forward();
       },
       bindHashchange() {
         let F = this.$refs.iframe;
@@ -240,9 +258,9 @@
     border-top: none;
   }
 
-  #vue-phone-model .has-web-bar .phone {
-    /*padding: 35px 0 35px 0;*/
-    padding: 35px 0 0 0;
+  #vue-phone-model .has-web-bar .v-phone {
+    padding: 35px 0 35px 0;
+    /*padding: 35px 0 0 0;*/
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -302,14 +320,22 @@
     margin-bottom: -35px;
   }
 
-  #vue-phone-model .phone {
+  #vue-phone-model .web-bottom-bar span {
+    display: inline-block;
+    width: 45px;
+    text-align: center;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+
+  #vue-phone-model .v-phone {
     width: 100%;
     height: 100%;
     overflow: hidden;
     background: #fff;
   }
 
-  #vue-phone-model .phone iframe {
+  #vue-phone-model iframe {
     width: 100%;
     height: 100%;
     border: none;
@@ -317,6 +343,35 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+  }
+
+  #vue-phone-model .v-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+
+  #vue-phone-model .bg-back {
+    background-image: url('./icons.png');
+    background-position: 0px 0px;
+  }
+
+  #vue-phone-model .bg-forward {
+    background-image: url('./icons.png');
+    background-position: 0px -20px;
+  }
+
+  #vue-phone-model .bg-icon {
+    background-image: url('./icons.png');
+    background-position: 0px -40px;
+    margin-bottom: -5px;
+  }
+
+  #vue-phone-model .bg-reload {
+    background-image: url('./icons.png');
+    background-position: 0px -60px;
   }
 
 </style>
