@@ -109,6 +109,7 @@
     border-radius: 50px;
     width: 320px;
     height: 568px;
+    box-sizing: content-box;
   }
 
   #vue-phone-model .phone-wrap.i6 {
