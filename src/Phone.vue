@@ -239,7 +239,8 @@
   #vue-phone-model .app-icon-box .app-icon {
     width: 100%;
     background: #fff;
-    border-radius: 5px;
+    border-radius: 3px;
+    overflow: hidden;
   }
 
   #vue-phone-model .app-icon-box .app-icon img {

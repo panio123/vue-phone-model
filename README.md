@@ -4,7 +4,7 @@
 
 ![image](http://git.oschina.net/liupan520/vue-phone-model/raw/master/p.jpg)
 
-## 演示地址 [DOME](http://liu-pan.cc/phone)
+## 演示地址 [DOME](http://liu-pan.cc/production)
 
 ## 使用
 
@@ -31,7 +31,7 @@ npm install vue-phone-model
   import VPhone from 'vue-phone-model';
   import 'vue-phone-model/dist/phone.css';
 
-  import logo from './img/logo.png';
+  import logo from './img/mi_logo.jpg';
 
   export default {
     name: 'app',

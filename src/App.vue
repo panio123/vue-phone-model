@@ -6,7 +6,7 @@
 
 <script>
   // import VPhone from './Phone.vue';
-  import logo from './img/logo.png';
+  import logo from './img/mi_logo.jpg';
   import VPhone from '../dist/phone.js';
   import '../dist/phone.css';
   // console.log(VPhone);
