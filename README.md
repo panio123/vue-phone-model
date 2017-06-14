@@ -8,15 +8,16 @@
 
 ## 使用
 
-目前只能用于 *.vue 开发模式中。
-
-### 安装
+#### 安装
 
 ``` bash
 
 npm install vue-phone-model
 
 ```
+
+### 用于 *.vue 组件化开发模式中
+
 
 ``` html
 
@@ -57,6 +58,14 @@ npm install vue-phone-model
   }
 
 </script>
+
+```
+### script 引入 
+
+``` html
+
+<script src="vue/dist/vue.js"></script>
+<script src="vue-phone-model/dist/phone.js"></script>
 
 ```
 
