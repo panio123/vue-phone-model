@@ -2,7 +2,7 @@
   "name": "vue-phone-model",
   "version": "1.0.3",
   "description": "A vue mobile phone model component",
-  "author": "liupan <liupan@foreveross.com>",
+  "author": "liupan <panio123@qq.com>",
   "auth": "",
   "license": "ISC",
   "main": "./dist/phone.js",
