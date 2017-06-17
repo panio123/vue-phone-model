@@ -375,10 +375,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Phone_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Phone_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Phone_vue__);
 
-__WEBPACK_IMPORTED_MODULE_0__Phone_vue___default.a.install = function (Vue) {
-  Vue.component(__WEBPACK_IMPORTED_MODULE_0__Phone_vue___default.a.name, __WEBPACK_IMPORTED_MODULE_0__Phone_vue___default.a);
-};
-
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.component(__WEBPACK_IMPORTED_MODULE_0__Phone_vue___default.a.name, __WEBPACK_IMPORTED_MODULE_0__Phone_vue___default.a);
+}
 /* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__Phone_vue___default.a);
 
 /***/ }),

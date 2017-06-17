@@ -11,7 +11,7 @@
 #### 安装
 
 ``` bash
-
+//需要vue.js 2.1.5 以上版本
 npm install vue-phone-model
 
 ```
