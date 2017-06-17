@@ -205,83 +205,83 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'VBrowser',
-  props: {
-    openData: {
-      default: {
-        title: '坚果空间',
-        url: 'http://liu-pan.cc',
-        showToolBar: 'auto'
-      },
-      type: Object
-    }
-  },
-  data: function data() {
-    return {
-      loading: false,
-      url: '',
-      webTitle: '',
-      webTitleShow: false
-    };
-  },
-  watch: {
-    url: function url(val) {
-      console.log(val);
-      this.webTitleShow = true;
-      if (val.indexOf('http://') !== 0 && val.indexOf('https://') !== 0) {
-        this.url = 'http://' + val;
-      }
-    }
-  },
-  methods: {
-    loaded: function loaded() {
-      this.webTitleShow = true;
-      this.checkMeta();
-      this.getTitle();
+    name: 'VBrowser',
+    props: {
+        openData: {
+            default: {
+                title: '坚果空间',
+                url: 'http://liu-pan.cc',
+                showToolBar: 'auto'
+            },
+            type: Object
+        }
     },
-    back: function back() {
-      var F = this.$refs.iframe;
-      var FW = F.contentWindow;
-      FW.history.back();
+    data: function data() {
+        return {
+            loading: false,
+            url: '',
+            webTitle: '',
+            webTitleShow: false
+        };
     },
-    forward: function forward() {
-      var FW = this.getFw();
-      FW.history.forward();
+    watch: {
+        url: function url(val) {
+            console.log(val);
+            this.webTitleShow = true;
+            if (val.indexOf('http://') !== 0 && val.indexOf('https://') !== 0) {
+                this.url = 'http://' + val;
+            }
+        }
     },
-    reload: function reload() {
-      var FW = this.getFw();
-      FW.location.reload();
-    },
-    bindHashchange: function bindHashchange() {
-      var _this = this;
+    methods: {
+        loaded: function loaded() {
+            this.webTitleShow = true;
+            this.checkMeta();
+            this.getTitle();
+        },
+        back: function back() {
+            var F = this.$refs.iframe;
+            var FW = F.contentWindow;
+            FW.history.back();
+        },
+        forward: function forward() {
+            var FW = this.getFw();
+            FW.history.forward();
+        },
+        reload: function reload() {
+            var FW = this.getFw();
+            FW.location.reload();
+        },
+        bindHashchange: function bindHashchange() {
+            var _this = this;
 
-      var FW = this.getFw();
-      FW.addEventListener('hashchange', function () {
-        console.log(FW.location);
-        _this.url = FW.location.href;
-      });
-    },
-    checkMeta: function checkMeta() {
-      var FW = this.getFw();
-      var webApp = FW.document.querySelector('head meta[name="apple-mobile-web-app-capable"]');
+            var FW = this.getFw();
+            FW.addEventListener('hashchange', function () {
+                console.log(FW.location);
+                _this.url = FW.location.href;
+            });
+        },
+        checkMeta: function checkMeta() {
+            var FW = this.getFw();
+            var webApp = FW.document.querySelector('head meta[name="apple-mobile-web-app-capable"]');
 
-      if (this.openData.showToolBar === 'auto' && webApp) {
-        this.openData.showToolBar = false;
-      }
+            if (this.openData.showToolBar === 'auto' && webApp) {
+                this.openData.showToolBar = false;
+            }
+        },
+        getFw: function getFw() {
+            var F = this.$refs.iframe;
+            var FW = F.contentWindow;
+            return FW;
+        },
+        getTitle: function getTitle() {
+            var F = this.$refs.iframe;
+            this.webTitle = F.contentWindow.document.title;
+        }
     },
-    getFw: function getFw() {
-      var F = this.$refs.iframe;
-      var FW = F.contentWindow;
-      return FW;
-    },
-    getTitle: function getTitle() {
-      var F = this.$refs.iframe;
-      this.webTitle = F.contentWindow.document.title;
+    created: function created() {
+        this.webTitle = this.openData.title;
     }
-  },
-  created: function created() {
-    this.webTitle = this.openData.title;
-  }
 });
 
 /***/ }),
@@ -296,74 +296,74 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'v-phone',
-  components: {
-    VBrowser: __WEBPACK_IMPORTED_MODULE_0__Browser_vue___default.a
-  },
-  props: {
-    phone: {
-      default: 'i5',
-      type: String
+    name: 'v-phone',
+    components: {
+        VBrowser: __WEBPACK_IMPORTED_MODULE_0__Browser_vue___default.a
     },
-    list: {
-      default: function _default() {
-        return [{
-          title: '坚果空间',
-          url: 'http://liu-pan.cc',
-          showToolBar: true,
-          open: false
-        }];
-      },
-      type: Array
+    props: {
+        phone: {
+            default: 'i5',
+            type: String
+        },
+        list: {
+            default: function _default() {
+                return [{
+                    title: '坚果空间',
+                    url: 'http://liu-pan.cc',
+                    showToolBar: true,
+                    open: false
+                }];
+            },
+            type: Array
+        }
+    },
+    data: function data() {
+        return {
+            opened: false,
+            openData: {},
+            desktopStyle: {},
+            time: ':'
+        };
+    },
+
+    methods: {
+        hide: function hide() {
+            this.opened = false;
+        },
+        open: function open(item) {
+            this.openData = item;
+            this.opened = item.open = true;
+        },
+        checkTime: function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        },
+        timer: function timer() {
+            var _this = this;
+
+            var now = new Date();
+            var h = this.checkTime(now.getHours());
+            var m = this.checkTime(now.getMinutes());
+            this.time = h + ":" + m;
+            setTimeout(function () {
+                _this.timer();
+            }, 1000 * 60);
+        }
+    },
+    created: function created() {
+        var _this2 = this;
+
+        this.timer();
+        this.list.some(function (item) {
+            if (item.open === true) {
+                _this2.open(item);
+
+                return true;
+            }
+        });
     }
-  },
-  data: function data() {
-    return {
-      opened: false,
-      openData: {},
-      desktopStyle: {},
-      time: ':'
-    };
-  },
-
-  methods: {
-    hide: function hide() {
-      this.opened = false;
-    },
-    open: function open(item) {
-      this.openData = item;
-      this.opened = item.open = true;
-    },
-    checkTime: function checkTime(i) {
-      if (i < 10) {
-        i = "0" + i;
-      }
-      return i;
-    },
-    timer: function timer() {
-      var _this = this;
-
-      var now = new Date();
-      var h = this.checkTime(now.getHours());
-      var m = this.checkTime(now.getMinutes());
-      this.time = h + ":" + m;
-      setTimeout(function () {
-        _this.timer();
-      }, 1000 * 60);
-    }
-  },
-  created: function created() {
-    var _this2 = this;
-
-    this.timer();
-    this.list.some(function (item) {
-      if (item.open === true) {
-        _this2.open(item);
-
-        return true;
-      }
-    });
-  }
 });
 
 /***/ }),
@@ -578,7 +578,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('span', {
     staticClass: "network"
-  }, [_vm._v("4G\n          "), _c('i', {
+  }, [_vm._v("4G\n                    "), _c('i', {
     staticClass: "power"
   })])
 }]}
