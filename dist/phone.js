@@ -218,7 +218,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     data: function data() {
         return {
-            loading: false,
+            loading: true,
+            progress: 0,
             url: '',
             webTitle: '',
             webTitleShow: false
@@ -238,6 +239,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.webTitleShow = true;
             this.checkMeta();
             this.getTitle();
+            this.progress = 100;
+            clearInterval(this.loading);
+            this.hideLoadBar();
+        },
+        hideLoadBar: function hideLoadBar() {
+            var _this = this;
+
+            setTimeout(function () {
+                _this.loading = false;
+            }, 500);
+        },
+        load: function load() {
+            var len = void 0;
+            if (this.progress >= 95) {
+                clearInterval(this.loading);
+            }
+            if (this.progress >= 80) {
+                len = .1;
+            } else {
+                len = 10;
+            }
+            this.progress += len;
         },
         back: function back() {
             var F = this.$refs.iframe;
@@ -251,15 +274,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         reload: function reload() {
             var FW = this.getFw();
             FW.location.reload();
-        },
-        bindHashchange: function bindHashchange() {
-            var _this = this;
-
-            var FW = this.getFw();
-            FW.addEventListener('hashchange', function () {
-                console.log(FW.location);
-                _this.url = FW.location.href;
-            });
         },
         checkMeta: function checkMeta() {
             var FW = this.getFw();
@@ -281,6 +295,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     created: function created() {
         this.webTitle = this.openData.title;
+    },
+    mounted: function mounted() {
+        var _this2 = this;
+
+        this.loading = setInterval(function () {
+            _this2.load();
+        }, 100);
     }
 });
 
@@ -301,8 +322,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         VBrowser: __WEBPACK_IMPORTED_MODULE_0__Browser_vue___default.a
     },
     props: {
-        phone: {
-            default: 'i5',
+        type: {
+            default: 'ipad',
             type: String
         },
         background: {
@@ -434,6 +455,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       'has-web-bar': _vm.openData.showToolBar
     }
   }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.loading),
+      expression: "loading"
+    }],
+    staticClass: "web-loading-bar"
+  }, [_c('div', {
+    staticClass: "loading-bar",
+    style: ({
+      width: _vm.progress + '%'
+    })
+  })]), _vm._v(" "), _c('div', {
     staticClass: "web-bar web-top-bar"
   }, [_c('input', {
     directives: [{
@@ -523,7 +557,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('div', {
     staticClass: "phone-wrap",
-    class: _vm.phone
+    class: _vm.type
   }, [_c('div', {
     staticClass: "phone-box"
   }, [_vm._m(0), _vm._v(" "), _c('div', {

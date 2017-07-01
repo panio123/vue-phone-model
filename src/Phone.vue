@@ -1,6 +1,6 @@
 <template>
     <div id="vue-phone-model">
-        <div class="phone-wrap" :class="phone">
+        <div class="phone-wrap" :class="type">
             <div class="phone-box">
                 <div class="phone-receiver-wrap">
                     <i class="phone-camera"></i>
@@ -38,8 +38,8 @@ export default {
         VBrowser
     },
     props: {
-        phone: {
-            default: 'i5',
+        type: {
+            default: 'ipad',
             type: String
         },
         background: {
@@ -121,6 +121,15 @@ export default {
     height: 667px;
 }
 
+#vue-phone-model .phone-wrap.ipad {
+    width: 1024px;
+    height: 768px;
+}
+
+#vue-phone-model .phone-wrap.ipad .phone-receiver-wrap {
+    display: none;
+}
+
 #vue-phone-model .phone-receiver-wrap {
     position: absolute;
     width: 100%;
@@ -162,6 +171,14 @@ export default {
     z-index: 9;
     cursor: pointer;
     box-shadow: inset 0px 0px 2px 1px rgba(111, 111, 111, 0.4);
+}
+
+#vue-phone-model .i6 .phone-button {
+    left: 160px;
+}
+
+#vue-phone-model .ipad .phone-button {
+    left: 480px;
 }
 
 #vue-phone-model .phone-tool-bar {
@@ -241,6 +258,11 @@ export default {
     cursor: pointer;
 }
 
+#vue-phone-model .ipad .app-icon-box {
+    width: 8%;
+    margin: 2%;
+}
+
 #vue-phone-model .app-icon-box .app-icon {
     width: 100%;
     background: #fff;
@@ -250,6 +272,15 @@ export default {
     text-align: center;
     line-height: 1.8;
     background: #4878b1;
+}
+
+
+#vue-phone-model .i6 .app-icon-box .app-icon {
+    font-size: 35px;
+}
+
+#vue-phone-model .ipad .app-icon-box .app-icon {
+    font-size: 45px;
 }
 
 #vue-phone-model .app-icon-box .app-icon img {
@@ -270,6 +301,10 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+#vue-phone-model .ipad .app-icon-box p {
+    font-size: 15px;
 }
 
 #vue-phone-model .v-zoom-enter {

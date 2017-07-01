@@ -24,7 +24,7 @@ npm install vue-phone-model
 
 <template>
   <div id="app">
-    <v-phone :list="list"></v-phone>
+    <v-phone :list="list" :type="phoneType" :background="phoneBackground"></v-phone>
   </div>
 </template>
 
@@ -41,6 +41,7 @@ npm install vue-phone-model
     },
     data() {
       return {
+        phoneType:'i6',//手机的大小，默认为iphone5的尺寸，可调为 i6 或 ipad，以后会支持自定义尺寸。
         phoneBackground:'red',//可自定义桌面背景，用法与定义元素的 background 属性一样。
         list: [{
           title: '坚果空间',
