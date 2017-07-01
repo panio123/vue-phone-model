@@ -5,10 +5,10 @@
 </template>
 
 <script>
-// import VPhone from './Phone.vue';
+import VPhone from './Phone.vue';
 import logo from './img/mi_logo.jpg';
-import VPhone from '../dist/phone.js';
-import '../dist/phone.css';
+// import VPhone from '../dist/phone.js';
+// import '../dist/phone.css';
 // console.log(VPhone);
 export default {
   name: 'app',

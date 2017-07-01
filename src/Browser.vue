@@ -1,6 +1,9 @@
 <template>
     <div id='browser' class="browser-wrap">
         <div class="browser-box" :class="{'has-web-bar':openData.showToolBar}">
+            <div class="web-loading-bar" v-show="loading">
+                <div class="loading-bar" :style="{width:progress+'%'}"></div>
+            </div>
             <div class="web-bar web-top-bar">
                 <input type="text" name="url" v-model.lazy="url" v-show="!webTitleShow" @blur="webTitleShow = true">
                 <div class="web-title" v-show="webTitleShow" @click="webTitleShow = false">
@@ -37,7 +40,8 @@ export default {
     },
     data: function () {
         return {
-            loading: false,
+            loading: true,
+            progress: 0,
             url: '',
             webTitle: '',
             webTitleShow: false
@@ -54,10 +58,29 @@ export default {
     },
     methods: {
         loaded() {
-            // this.bindHashchange();
             this.webTitleShow = true;
             this.checkMeta();
             this.getTitle();
+            this.progress = 100;
+            clearInterval(this.loading);
+            this.hideLoadBar();
+        },
+        hideLoadBar() {
+            setTimeout(() => {
+                this.loading = false;
+            }, 500);
+        },
+        load() {
+            let len;
+            if (this.progress >= 95) {
+                clearInterval(this.loading);
+            }
+            if (this.progress >= 80) {
+                len = .1;
+            } else {
+                len = 10;
+            }
+            this.progress += len;
         },
         back() {
             let F = this.$refs.iframe;
@@ -71,13 +94,6 @@ export default {
         reload() {
             let FW = this.getFw();
             FW.location.reload();
-        },
-        bindHashchange() {
-            let FW = this.getFw();
-            FW.addEventListener('hashchange', () => {
-                console.log(FW.location)
-                this.url = FW.location.href;
-            });
         },
         checkMeta() {
             let FW = this.getFw();
@@ -99,6 +115,11 @@ export default {
     },
     created() {
         this.webTitle = this.openData.title;
+    },
+    mounted() {
+        this.loading = setInterval(() => {
+            this.load();
+        }, 100);
     }
 }
 
@@ -237,5 +258,31 @@ export default {
 
 #vue-phone-model .reload {
     float: right;
+}
+
+#vue-phone-model .web-loading-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+}
+
+#vue-phone-model .has-web-bar .web-loading-bar {
+    top: 35px;
+}
+
+#vue-phone-model .web-loading-bar .loading-bar {
+    height: 100%;
+    width: 50px;
+    opacity: 1;
+    background: #54e4a0;
+    transition: all .5s;
+}
+
+#vue-phone-model .web-loading-bar .loaded {
+    opacity: 0;
 }
 </style>
