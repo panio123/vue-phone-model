@@ -41,9 +41,10 @@ npm install vue-phone-model
     },
     data() {
       return {
+        phoneBackground:'red',//可自定义桌面背景，用法与定义元素的 background 属性一样。
         list: [{
           title: '坚果空间',
-          icon: logo,
+          icon: logo,//设置一个桌面图标，如果不传，刚默认取title字段的第一个字作为图标内容
           url: 'http://liu-pan.cc',//需要打开的链接 
           showToolBar: true,//是否显示工具栏，可传入 true false 'auto'默认为 'auto',组件会根据打开网页的 meta属性决定
           open: false//是否默认打开这个页面 -只会有一个默认打开生效

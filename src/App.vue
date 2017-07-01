@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-phone :list="list"></v-phone>
+    <v-phone :list="list" background='#fff'></v-phone>
   </div>
 </template>
 
@@ -19,15 +19,13 @@ export default {
     return {
       list: [{
         title: '坚果空间',
-        icon: logo,
         url: 'http://liu-pan.cc',
-        showToolBar: false,
+        showToolBar: true,
         open: false
       }, {
         title: '小米商城',
-        icon: logo,
+        // icon: logo,
         url: 'http://liu-pan.cc/example/mi_app/index.html',
-        showToolBar: false,
         open: false
       }]
     }

@@ -231,7 +231,8 @@ export default {
 
 #vue-phone-model .bg-reload {
     background-image: url('./img/icons.png');
-    background-position: 0px -60px;
+    background-position: -3px -83px;
+    background-size: 135%;
 }
 
 #vue-phone-model .reload {

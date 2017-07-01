@@ -13,15 +13,16 @@
                         <i class="power"></i>
                     </span>
                 </div>
-                <div class="phone-desktop" :style="desktopStyle">
+                <div class="phone-desktop" :style="{'background':background}">
                     <div class="app-icon-box" v-for="(item,$index) in list" @click="open(item)" :key="$index">
                         <div class="app-icon">
-                            <img :src="item.icon">
+                            <img v-if="item.icon" :src="item.icon">
+                            <span v-else>{{item.title.slice(0,1)}}</span>
                         </div>
                         <p>{{item.title}}</p>
                     </div>
                     <transition name="v-zoom">
-                        <v-browser v-show="opened" :open-data="openData"></v-browser>
+                        <v-browser v-if="opened" :open-data="openData"></v-browser>
                     </transition>
                 </div>
             </div>
@@ -41,6 +42,10 @@ export default {
             default: 'i5',
             type: String
         },
+        background: {
+            default: '',
+            type: String
+        },
         list: {
             default: () => {
                 return [{
@@ -57,7 +62,6 @@ export default {
         return {
             opened: false,
             openData: {},
-            desktopStyle: {},
             time: ':'
         }
     },
@@ -242,6 +246,10 @@ export default {
     background: #fff;
     border-radius: 3px;
     overflow: hidden;
+    font-size: 30px;
+    text-align: center;
+    line-height: 1.8;
+    background: #4878b1;
 }
 
 #vue-phone-model .app-icon-box .app-icon img {

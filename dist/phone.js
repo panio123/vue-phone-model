@@ -305,6 +305,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             default: 'i5',
             type: String
         },
+        background: {
+            default: '',
+            type: String
+        },
         list: {
             default: function _default() {
                 return [{
@@ -321,7 +325,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             opened: false,
             openData: {},
-            desktopStyle: {},
             time: ':'
         };
     },
@@ -534,7 +537,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "time"
   }, [_vm._v(_vm._s(_vm.time))]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c('div', {
     staticClass: "phone-desktop",
-    style: (_vm.desktopStyle)
+    style: ({
+      'background': _vm.background
+    })
   }, [_vm._l((_vm.list), function(item, $index) {
     return _c('div', {
       key: $index,
@@ -546,26 +551,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_c('div', {
       staticClass: "app-icon"
-    }, [_c('img', {
+    }, [(item.icon) ? _c('img', {
       attrs: {
         "src": item.icon
       }
-    })]), _vm._v(" "), _c('p', [_vm._v(_vm._s(item.title))])])
+    }) : _c('span', [_vm._v(_vm._s(item.title.slice(0, 1)))])]), _vm._v(" "), _c('p', [_vm._v(_vm._s(item.title))])])
   }), _vm._v(" "), _c('transition', {
     attrs: {
       "name": "v-zoom"
     }
-  }, [_c('v-browser', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.opened),
-      expression: "opened"
-    }],
+  }, [(_vm.opened) ? _c('v-browser', {
     attrs: {
       "open-data": _vm.openData
     }
-  })], 1)], 2)])])])
+  }) : _vm._e()], 1)], 2)])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "phone-receiver-wrap"
