@@ -6,6 +6,7 @@
   "auth": "",
   "license": "ISC",
   "main": "./dist/phone.js",
+  "readme": "README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/panio123/vue-phone-model.git"
