@@ -5,8 +5,15 @@
   "author": "liupan <panio123@qq.com>",
   "auth": "",
   "license": "ISC",
+  "private": true,
   "main": "./dist/phone.js",
   "readme": "README.md",
+  "keywords": [
+    "vue",
+    "vue-phone-model",
+    "vue2",
+    "vue-components"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/panio123/vue-phone-model.git"
