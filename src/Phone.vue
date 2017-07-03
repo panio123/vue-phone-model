@@ -39,7 +39,7 @@ export default {
     },
     props: {
         type: {
-            default: 'ipad',
+            default: 'i5',
             type: String
         },
         background: {
