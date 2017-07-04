@@ -2,8 +2,7 @@
 
 >一个vuejs的手机模型组件
 
-![image](https://git.oschina.net/liupan520/vue-phone-model/raw/master/p1.jpg)
-![image](https://git.oschina.net/liupan520/vue-phone-model/raw/master/p2.jpg)
+![image](http://git.oschina.net/liupan520/vue-phone-model/raw/master/phone.gif)
 
 ## 演示地址 [DOME](http://liu-pan.cc/production)
 
